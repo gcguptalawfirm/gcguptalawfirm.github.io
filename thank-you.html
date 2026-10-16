@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You | GC Gupta Law Firm</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%230d1b2a' stroke='%23c9a24b' stroke-width='2'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-size='24' font-weight='700' fill='%23c9a24b'%3EGC%3C/text%3E%3C/svg%3E">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body data-header="solid">
+
+  <section class="thanks">
+    <div>
+      <div class="thanks__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h1 id="thanks-title" style="font-size:clamp(2.4rem,5vw,3.6rem)">Thank you</h1>
+      <p id="thanks-text" style="max-width:520px;margin:0 auto 34px;color:var(--muted)">We've received your message and a member of our team will get back to you.</p>
+      <a href="index.html" class="btn btn--dark">Back to Home</a>
+    </div>
+  </section>
+
+  <script>
+    if ((new URLSearchParams(location.search).get("type") || "").includes("Career")) {
+      document.getElementById("thanks-title").textContent = "Application received";
+      document.getElementById("thanks-text").textContent =
+        "Thank you for your interest in joining us. We'll review your application and get in touch if there is a suitable opening.";
+    }
+  </script>
+</body>
+</html>
