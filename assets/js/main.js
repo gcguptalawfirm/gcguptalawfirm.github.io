@@ -224,7 +224,7 @@ function initForms() {
     const hidden = {
       _subject: `New ${kind} submission — ${SITE.name} website`,
       _template: "table",
-      _captcha: "false",
+      _captcha: "true",
       _next: new URL("thank-you.html?type=" + encodeURIComponent(kind), location.href).href,
     };
     Object.entries(hidden).forEach(([name, value]) => {
