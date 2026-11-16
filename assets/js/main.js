@@ -13,6 +13,10 @@ const SITE = {
   whatsapp: "919468722227",          // country code + number, digits only
   email: "gcguptalawfirm@gmail.com",
   locations: "Jaipur · Jodhpur · Delhi",
+  // Office address shown under the footer map, and the Google Maps link it opens.
+  address: "Second Floor, Anchor Mall, 417, Jaipur, Rajasthan 302006",
+  mapLink: "https://maps.app.goo.gl/fhQp2YpiYUDSRhLj7",
+  mapQuery: "GC Gupta Law Firm, Anchor Mall, Jaipur, Rajasthan 302006",
   // Where form submissions are emailed (via FormSubmit.co — free, no signup).
   // The first submission sends a one-time activation email to this address.
   formEmail: "gcguptalawfirm@gmail.com",
@@ -31,6 +35,7 @@ const NAV = [
 
 const ICON = {
   scales: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M3 7h18M6 7l-3 7a3.5 3.5 0 0 0 6 0L6 7zM18 7l-3 7a3.5 3.5 0 0 0 6 0l-3-7z"/><circle cx="12" cy="4" r="1"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
   arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.8 13.8 0 0 0 5.3 4.7c2 .8 2.7.9 3.7.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>',
 };
@@ -103,6 +108,19 @@ function renderFooter() {
               <li><a href="tel:${SITE.phone2.replace(/\s/g, "")}">${SITE.phone2}</a></li>
               <li><a href="mailto:${SITE.email}">${SITE.email}</a></li>
             </ul>
+          </div>
+          <div>
+            <h4>Find Us</h4>
+            <a class="footer-map" href="${SITE.mapLink}" target="_blank" rel="noopener" aria-label="Open ${SITE.name} in Google Maps">
+              <span class="footer-map__frame">
+                <iframe src="https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&z=16&output=embed" title="Map showing ${SITE.name}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1" aria-hidden="true"></iframe>
+                <span class="footer-map__cta">Open in Google Maps ${ICON.arrow}</span>
+              </span>
+              <span class="footer-map__address">
+                <span class="footer-map__pin" aria-hidden="true">${ICON.pin}</span>
+                <span>${SITE.address}</span>
+              </span>
+            </a>
           </div>
         </div>
         <div class="footer-disclaimer">
