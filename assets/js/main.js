@@ -110,7 +110,7 @@ function renderFooter() {
             </ul>
           </div>
           <div>
-            <h4>Find Us</h4>
+            <h4>Location</h4>
             <a class="footer-map" href="${SITE.mapLink}" target="_blank" rel="noopener" aria-label="Open ${SITE.name} in Google Maps">
               <span class="footer-map__frame">
                 <iframe src="https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&z=16&output=embed" title="Map showing ${SITE.name}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1" aria-hidden="true"></iframe>
