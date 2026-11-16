@@ -94,7 +94,7 @@ function renderFooter() {
               <span class="brand__mark">${SITE.monogram}</span>
               <span class="brand__text"><strong>${SITE.name}</strong><span>${SITE.tagline}</span></span>
             </a>
-            <p>Carrying forward the legacy of Shri Ganga Charan Gupta, Retd. DSP — a practice built on honour, service and trust, appearing before courts and tribunals across India.</p>
+            <p>Carrying forward the legacy of Shri Ganga Charan Gupta, Retd. RPS Officer — a practice built on honour, service and trust, appearing before courts and tribunals across India.</p>
           </div>
           <div>
             <h4>Explore</h4>
