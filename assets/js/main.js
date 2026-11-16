@@ -14,7 +14,7 @@ const SITE = {
   email: "gcguptalawfirm@gmail.com",
   locations: "Jaipur · Jodhpur · Delhi",
   // Office address shown under the footer map, and the Google Maps link it opens.
-  address: "Second Floor, Anchor Mall, 417, Jaipur, Rajasthan 302006",
+  address: "GC GUPTA LAW FIRM, 417, Second Floor, Anchor Mall, Jaipur, Rajasthan 302006",
   mapLink: "https://maps.app.goo.gl/fhQp2YpiYUDSRhLj7",
   mapQuery: "GC Gupta Law Firm, Anchor Mall, Jaipur, Rajasthan 302006",
   // Where form submissions are emailed (via FormSubmit.co — free, no signup).
