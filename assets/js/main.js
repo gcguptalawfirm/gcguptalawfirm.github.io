@@ -10,9 +10,9 @@ const SITE = {
   tagline: "Advocates & Legal Consultants",
   phone: "+91 94140 44199",
   phone2: "+91 94687 22227",
-  whatsapp: "919414044199",          // country code + number, digits only
+  whatsapp: "919468722227",          // country code + number, digits only
   email: "gcguptalawfirm@gmail.com",
-  locations: "Jaipur · Jodhpur · Delhi · Pan India",
+  locations: "Jaipur · Jodhpur · Delhi",
   // Where form submissions are emailed (via FormSubmit.co — free, no signup).
   // The first submission sends a one-time activation email to this address.
   formEmail: "gcguptalawfirm@gmail.com",
@@ -26,7 +26,7 @@ const NAV = [
   { href: "about.html", label: "About" },
   { href: "practice-areas.html", label: "Practice Areas" },
   { href: "careers.html", label: "Careers" },
-  { href: "contact.html", label: "Contact" },
+  { href: "contact.html", label: "Get in Touch" },
 ];
 
 const ICON = {
@@ -40,7 +40,7 @@ function renderHeader() {
   const current = location.pathname.split("/").pop() || "index.html";
   const solid = document.body.dataset.header === "solid" ? " solid" : "";
   const links = NAV.map(
-    (n) => `<li><a href="${n.href}"${n.href === current ? ' class="active" aria-current="page"' : ""}>${n.label}</a></li>`
+    (n) => `<li><a href="${n.href}" class="${n.href === "contact.html" ? "btn btn--gold nav__cta" : ""}${n.href === current ? " active" : ""}"${n.href === current ? ' aria-current="page"' : ""}>${n.label}</a></li>`
   ).join("");
 
   document.body.insertAdjacentHTML(
@@ -53,7 +53,6 @@ function renderHeader() {
         </a>
         <ul class="nav__links" id="nav-links">
           ${links}
-          <li><a href="contact.html" class="btn btn--gold nav__cta">Get in Touch</a></li>
         </ul>
         <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
           <span></span><span></span><span></span>
@@ -95,15 +94,6 @@ function renderFooter() {
           <div>
             <h4>Explore</h4>
             <ul>${NAV.map((n) => `<li><a href="${n.href}">${n.label}</a></li>`).join("")}</ul>
-          </div>
-          <div>
-            <h4>Join Us</h4>
-            <ul>
-              <li><a href="careers.html?role=internship#apply">Internships</a></li>
-              <li><a href="careers.html?role=associate#apply">Associate Positions</a></li>
-              <li><a href="careers.html?role=paralegal#apply">Paralegal / Clerk</a></li>
-              <li><a href="contact.html">Get in Touch</a></li>
-            </ul>
           </div>
           <div>
             <h4>Reach Us</h4>
