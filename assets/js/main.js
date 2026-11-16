@@ -133,8 +133,11 @@ function renderDisclaimer() {
     "beforeend",
     `<div class="disclaimer" id="disclaimer" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
       <div class="disclaimer__box">
-        <div class="disclaimer__seal">${ICON.scales}</div>
-        <h2 id="disclaimer-title">Disclaimer</h2>
+        <div class="disclaimer__heading">
+          <div class="disclaimer__seal" aria-hidden="true">${ICON.scales}</div>
+          <h2 id="disclaimer-title">Disclaimer</h2>
+        </div>
+        <div class="disclaimer__content" role="region" aria-label="Full disclaimer" tabindex="0">
         <p>As per the rules of the <strong>Bar Council of India</strong>, advocates and law firms are not permitted to solicit work or advertise in any manner. By clicking <strong>“I Agree”</strong> below, you acknowledge and confirm that:</p>
         <ul>
           <li>there has been no advertisement, personal communication, solicitation, invitation or inducement of any sort whatsoever from ${SITE.name} or any of its members to solicit any work through this website;</li>
@@ -143,6 +146,7 @@ function renderDisclaimer() {
           <li>any transmission, receipt or use of this website does not create a lawyer–client relationship.</li>
         </ul>
         <p>The content of this website is for informational purposes only and should not be interpreted as soliciting or advertisement. ${SITE.name} is not liable for the consequences of any action taken by relying on the material or information provided on this website. For any legal issue, you must seek independent legal advice.</p>
+        </div>
         <div class="disclaimer__actions">
           <button type="button" class="btn btn--dark" id="disclaimer-agree">I Agree ${ICON.arrow}</button>
           <button type="button" class="btn btn--outline" id="disclaimer-decline">I Disagree</button>

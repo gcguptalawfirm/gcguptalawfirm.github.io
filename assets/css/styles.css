@@ -477,24 +477,36 @@ p { margin: 0 0 1em; }
 /* ---------- Bar Council disclaimer modal ---------- */
 .disclaimer {
   position: fixed; inset: 0; z-index: 1000;
-  display: none; align-items: center; justify-content: center; padding: 20px;
+  display: none; align-items: center; justify-content: center; padding: 12px;
   background: rgba(247, 243, 234, .75); backdrop-filter: blur(10px);
 }
 .disclaimer.open { display: flex; animation: fade .35s ease; }
 .disclaimer__box {
-  position: relative;
-  width: 100%; max-width: 680px; max-height: calc(100vh - 40px); overflow-y: auto;
-  background: var(--paper); border-radius: 20px; padding: 48px 46px 40px;
+  position: relative; display: flex; flex-direction: column;
+  width: 100%; max-width: 680px; max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px); overflow: hidden;
+  background: var(--paper); border-radius: 20px; padding: 24px;
   border-top: 4px solid var(--gold); box-shadow: 0 40px 100px -30px rgba(13, 27, 42, .45);
   animation: rise .45s cubic-bezier(.2, .8, .2, 1);
 }
-.disclaimer__seal { width: 56px; height: 56px; border-radius: 50%; background: var(--cream); color: var(--gold-text); display: grid; place-items: center; margin-bottom: 20px; }
-.disclaimer__seal svg { width: 28px; height: 28px; }
-.disclaimer h2 { font-size: 2.1rem; margin-bottom: 18px; }
-.disclaimer p { font-size: .95rem; color: var(--muted); }
-.disclaimer ul { padding-left: 20px; margin: 0 0 18px; color: var(--muted); font-size: .95rem; }
-.disclaimer ul li { margin-bottom: 8px; }
-.disclaimer__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.disclaimer__heading { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-bottom: 14px; }
+.disclaimer__seal { width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: var(--cream); color: var(--gold-text); display: grid; place-items: center; }
+.disclaimer__seal svg { width: 22px; height: 22px; }
+.disclaimer h2 { font-size: 1.7rem; margin: 0; }
+.disclaimer__content { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.disclaimer__content:focus-visible { outline: 2px solid var(--gold-text); outline-offset: -2px; }
+.disclaimer p { font-size: .875rem; line-height: 1.5; color: var(--muted); margin-bottom: 10px; }
+.disclaimer ul { padding-left: 20px; margin: 0 0 10px; color: var(--muted); font-size: .875rem; line-height: 1.5; }
+.disclaimer ul li { margin-bottom: 6px; }
+.disclaimer__content > :last-child { margin-bottom: 0; }
+.disclaimer__actions { display: flex; gap: 12px; flex-shrink: 0; margin-top: 16px; }
+.disclaimer__actions .btn { min-height: 44px; padding: 11px 20px; font-size: .875rem; justify-content: center; }
+@media (max-width: 640px), (max-height: 600px) {
+  .disclaimer__box { padding: 16px; }
+  .disclaimer__heading { margin-bottom: 10px; }
+  .disclaimer__actions { margin-top: 12px; gap: 10px; }
+  .disclaimer__actions .btn { flex: 1; padding: 10px 12px; }
+}
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes rise { from { opacity: 0; transform: translateY(30px) scale(.98); } to { opacity: 1; transform: none; } }
 
@@ -574,7 +586,6 @@ p { margin: 0 0 1em; }
   .cards, .team, .values, .steps, .footer-grid, .form-grid { grid-template-columns: 1fr; }
   .step::after { display: none; }
   .form-card { padding: 30px 22px; }
-  .disclaimer__box { padding: 36px 24px 28px; }
   .duo__item { padding: 38px 28px; }
   .hero { padding-top: 120px; }
   .hero__meta { gap: 24px; }
