@@ -438,7 +438,8 @@ p { margin: 0 0 1em; }
 .info__icon { width: 46px; height: 46px; border-radius: 12px; background: var(--cream); color: var(--gold-text); display: grid; place-items: center; flex-shrink: 0; }
 .info__icon svg { width: 22px; height: 22px; }
 .info h4 { font-family: var(--sans); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
-.info p, .info a { margin: 0; color: var(--ink); font-weight: 500; }
+.info p, .info a { margin: 0; color: var(--ink); font-weight: 500; overflow-wrap: anywhere; }
+.form-shell > *, .info > div { min-width: 0; }
 .info a:hover { color: var(--gold-text); }
 
 .perks { list-style: none; padding: 0; margin: 30px 0 0; display: grid; gap: 16px; }
@@ -592,6 +593,21 @@ p { margin: 0 0 1em; }
   .form-shell { grid-template-columns: 1fr; }
 }
 
+/* Narrow laptops / landscape tablets: keep the full nav on one line. */
+@media (min-width: 881px) and (max-width: 1100px) {
+  .nav { gap: 16px; }
+  .nav__links { gap: 20px; }
+  .nav__links a, .brand__text span { white-space: nowrap; }
+  .nav__links a.btn { padding: 11px 18px; }
+}
+
+/* Touch screens: larger tap areas for footer links without moving anything,
+   and 16px form text so iOS doesn't zoom in on focus. */
+@media (max-width: 1024px) {
+  .site-footer li a { display: inline-block; padding: 6px 0; margin: -6px 0; }
+  .field input, .field select, .field textarea { font-size: 16px; }
+}
+
 @media (max-width: 880px) {
   .nav__links {
     position: fixed; inset: 0 0 0 auto; width: min(320px, 85vw);
@@ -601,6 +617,12 @@ p { margin: 0 0 1em; }
   }
   .nav__links a { font-size: 1.15rem; }
   .nav-open .nav__links { transform: none; }
+  /* Keep the off-canvas menu full height once the header turns solid on scroll
+     (a backdrop-filter would make the header the menu's containing block). */
+  .site-header.scrolled, .site-header.solid { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  /* Hide the closed menu (and its shadow) so it can't show at the screen edge or take focus. */
+  .nav__links { visibility: hidden; transition: transform .4s ease, visibility 0s linear .4s; }
+  .nav-open .nav__links { visibility: visible; transition: transform .4s ease, visibility 0s; }
   .nav__toggle { display: block; position: relative; z-index: 2; }
   .hero__grid, .split, .cta-band, .duo { grid-template-columns: 1fr; }
   .seal { max-width: 300px; margin: 0 auto; }
@@ -621,6 +643,7 @@ p { margin: 0 0 1em; }
   .hero { padding-top: 120px; }
   .hero__meta { gap: 24px; }
   .brand__text span { display: none; }
+  .frame-wrap::before { inset: -12px auto auto -12px; }
 }
 
 /* ---------- Forums (where we appear) ---------- */
